@@ -1,0 +1,21 @@
+name: LeetCode Streak Checker
+
+on:
+  schedule:
+    - cron: '30 16 * * *' # Har raat 10:00 PM IST par chalega
+  workflow_dispatch:
+
+jobs:
+  check-streak:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.x'
+
+      - name: Run Python script
+        run: python main.py
